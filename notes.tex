@@ -188,4 +188,61 @@
         \item \textbf{Negative stakeholders:} Stakeholders that want a project to fail
       \end{itemize}
 
+  \section{User Requirements}
+
+    \subsection{Use Cases}
+      A use case represents some sort of end-to-end functionality in a system, capturing both its triggering event and the complete system response. Well-defined
+      use cases should not overlap much with one another. Time-triggered use cases feature time as their triggering event.
+
+      \subsection{Actors}
+        An actor is an entity that interacts with the described system, which may include users or other systems. A supporting actor provides some service to the
+        described system.
+
+        \subsubsection{Actor Generalization}
+          Actors often share common use cases with one another. In these cases, actor generalization can be applied, which factors out common behavior as an
+          abstract actor.
+
+      \subsection{Modifying Use Cases}
+        \begin{itemize}
+          \item <<include>> is used to add a sub use case that is used in multiple other use cases
+          \item <<extend>> is used to add a sub use case that is used in multiple other use cases
+        \end{itemize}
+        Note that well-described systems tend to use these modifiers sparingly.
+
+      \subsection{Use-Case Descriptions}
+        Textual formats known as use-case descriptions are commonly used to represent use-cases. These descriptions vary in the amount of detail provided for
+        each use case.
+
+      \subsection{User Stories}
+        User stories are an alternative to use-case descriptions for describing a system. Instead of being told from the system's perspective, user stories
+        provide a description of something a user wants to be able to do (i.e. user requirements). The parts of a successfully managed user story are:
+        \begin{itemize}
+          \item \textbf{Card:} The initial description, often phrased as ``As a <role>, I want <something> so that <benefit>''
+          \item \textbf{Conversation:} Discussion with product owner to determine requirement details
+          \item \textbf{Confirmation:} Criteria for determining whether implementation meets requirements (conditions of satisfaction are described
+          from the system's perspective)
+        \end{itemize}
+
+        \subsubsection{Benefits of User Stories}
+          The benefits of user stories include:
+          \begin{itemize}
+            \item Easy for stakeholders to understand
+            \item User-focused style encourages discussion more than ordinary written documentation
+            \item Encouraging iterative development when stories are sized accordingly
+          \end{itemize}
+
+      \subsection{Changing Requirements}
+        System requirements often change during the development process. Below are key topics to consider when managing requirement changes.
+
+        \subsubsection{Requirements Baseline}
+          A requirements baseline is a set of formally reviewed and agreed core requirements for a system. Major requirement changes should pass
+          through this review process, and it may be helpful to limit the rate of change to these requirements.
+
+        \subsubsection{Unique Value Proposition}
+          New requirements should not weaken a project's UVP.
+
+        \subsubsection{Project Scope}
+          When project scope is not managed well, there is a tendency for ``scope creep'' to occur. Scope creep can be mitigated by keeping a
+          prioritized list of requirements, and only adding a new major ones to each release.
+
 \end{document}
