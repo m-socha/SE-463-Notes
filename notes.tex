@@ -246,4 +246,47 @@
           When project scope is not managed well, there is a tendency for ``scope creep'' to occur. Scope creep can be mitigated by keeping a
           prioritized list of requirements, and only adding a few major ones to each release.
 
+  \section{Workflow Models}
+    A use case can be decomposed into an ordered sequence of tasks known as a workflow. Each task in a workflow specifies the data it requires
+    and the data it produces.
+
+    \subsection{Scenarios}
+      A scenario is one full execution path through a use case, listing only observable actions between a system and external actors. A use case can
+      be considered to be a collection of success and failure scenarios initiated by an external actor to achieve a particular goal. An example scenario
+      for a banking system is below:
+      \begin{enumerate}
+        \item User requests to withdraw funds, specifies amount
+        \item Bank authenticates user
+        \item Bank checks account has sufficient funds
+        \item Bank dispenses cash and receipt
+        \item Bank records the transaction
+        \item User takes case and receipt, leaves
+      \end{enumerate}
+
+      A general template for a scenario includes:
+      \begin{itemize}
+        \item \textbf{Business event name}
+        \item \textbf{Business use case name/reference}
+        \item \textbf{Trigger}
+        \item \textbf{Preconditions}
+        \item \textbf{Interested stakeholders}
+        \item \textbf{Active stakeholders}
+        \item \textbf{Normal case steps}
+        \item \textbf{Alternatives} - Sub use cases that capture the main goal of this use case through a different sequence of actions
+        \item \textbf{Exceptions} - Sub use cases that capture an unwanted deviation
+        \item \textbf{Postconditions}
+      \end{itemize}
+
+      \subsubsection{More Complex Actions}
+        Scenario actions can include more complex control flow, such as branching and looping. However, this should be used sparingly, and is
+        often a good indicator that the scenario is becoming too detailed or all-encompassing.
+
+    \subsection{Workflow Diagrams}
+      \subsubsection{Activity Diagram}
+        Activity diagrams are UML graphical representations of a system's flow control between activities and actions.
+
+      \subsubsection{Dataflow Diagram (DFD)}
+        DFDs are graphical representations of the functional decomposition of an information system. Each step in a described workflow
+        states what information it requires along with its source, and what information is produced along with its destination.
+
 \end{document}
