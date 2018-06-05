@@ -483,4 +483,35 @@
         Class-scope attributes have a changeable value that is shared by all object instances of a class. Class-scope attributes can lead to trouble if different instances require
         that a different value be stored.
 
+  \section{Prototyping}
+    A prototype is a partial implementation designed to help stakeholders learn more about a problem or its solution.
+
+    \subsection{Prototyping Categories}
+      Prototypes can be divided into different categories, including:
+      \begin{itemize}
+        \item \textbf{Presentation prototypes}, which are used as a proof of concept to explain certain features/designs and then thrown away.
+        \item \textbf{Exploratory prototypes}, which are used to learn more about the problem (e.g. elicit needs, clarify goals), and are also thrown away.
+        \item \textbf{Experimental/Breadboard prototypes}, which are used to explore technical feasibility, typically with little to no user/customer involvement.
+        \item \textbf{Evolutionary/Operational prototypes}, which is an early deliverable in a continuous development process that gets improved on later.
+      \end{itemize}
+
+    \subsection{Prototyping Methodologies}
+
+      \subsection{Throwaway Prototyping}
+        Throwaway prototypes are used to learn more about a problem, after which they are discarded and not used in a final product. The development of these systems is designed to be
+        done rapidly, with a horizontal strategy often applied that only builds up a single layer at a time (e.g. only build UI for UI-related experimentation). Throwaway prototyping can
+        be useful for gathering information early on (low risk). However, it may result in a lack of formal documentation, unrealistic customer expectations, and in some situations with
+        major time constraints can end up getting developed into a final product (typically leads to poor design).
+
+      \subsection{Evolutionary Prototyping}
+        Evolutionary prototyping involves learning about a solution to a problem. Emphasis is placed on the ``risky'' parts of a solution first and the system is developed incrementally,
+        with a vertical strategy that builds up all layers feature-by-feature typically preferred. Evolutionary prototypes tend to be good at evolving to requirements changes, and can be
+        reverted to their previous increment should some change introduce major problems. However, evolutionary prototypes run the risk of poor early architectural choices, poorly
+        structured systems, and often lack high-level direction and control.
+
+      \subsection{Sketching and Wireframing}
+        Sketches of a UI focus on content, and include the scope of what should be included on a display and how it should be organized. Wireframes are a visual representation of a UI
+        that focus on content hierarchy and flow rather than presentation details (e.g. color, fonts, images, etc.). Sketching and wireframing both allow for the rapid generation of
+        UI designs, which can be iterated on and refined further.
+
 \end{document}
