@@ -514,4 +514,59 @@
         that focus on content hierarchy and flow rather than presentation details (e.g. color, fonts, images, etc.). Sketching and wireframing both allow for the rapid generation of
         UI designs, which can be iterated on and refined further.
 
+  \section{Quality Requirements}
+    Functional requirements describe what a system is supposed to do (e.g. what services are provided, I/O behavior). Quality requirements describe some
+    additional constraints for the system.
+
+    Common examples of quality requirements include:
+    \begin{itemize}
+      \item \textbf{Performance} (e.g. execution speed, response time, throughput)
+      \item \textbf{Reliability} (e.g. fault tolerance, mean time to failure (MTTF))
+      \item \textbf{Robustness} (e.g. tolerance to invalid inputs, performance under stress)
+      \item \textbf{Adaptability} (e.g. ease of adding new functionality, reusability in other environments)
+      \item \textbf{Security} (e.g. controlled access to data, protection against theft)
+      \item \textbf{Usability} (e.g. ease of learning, user productivity)
+      \item \textbf{Scalability} (performance as workload increases in terms of data size, number of users, etc.)
+      \item \textbf{Efficiency} (with respect to utilization of resources)
+      \item \textbf{Accuracy/Precision} (e.g. precision of computations, tolerance for computation errors)
+    \end{itemize}
+
+    \subsection{``Motherhood'' Requirements}
+      The term motherhood requirements refers to system requirements that are all-encompassing and do not differentiate well between different systems
+      (e.g. ``reliable'', ``user-friendly'', ``maintainable''). Virtually every system must meet such requirements to some degree; what differentiates
+      systems is the degree to which these attributes are required, and their relative importance.
+
+    \subsection{Fit Criteria}
+      Fit criteria quantify the extend to which a quality requirement must be met. Examples include:
+      \begin{itemize}
+        \item System must be down no more than 5 minutes a year.
+        \item 90\% of users should be able to create an account within 2 minutes.
+      \end{itemize}
+
+      \subsubsection{Richer Fit Criteria}
+        Richer fit criteria are a way of organizing fit criteria that includes a target metric, a minimum metric, and a high-achieving ``outstanding''
+        metric. An example is that a system has a minimum response time of 1s, a target response time of 0.5s, and an outstanding response time
+        of 0.1s.
+
+    \subsection{Measurements}
+      Effectively applying fit criteria can allow for measurement of quality requirements. However, not all fit criteria can be measured on a system
+      prototype or new systems in general (e.g. criteria that concern large amounts of users or long amounts of time). In these cases, possible approaches
+      to measurement include:
+      \begin{itemize}
+        \item Measuring attributes of prototype.
+        \item Estimating quality attributes.
+        \item Delivering a system and performing more accurate quality measurements later.
+      \end{itemize}
+
+      \subsubsection{Monte Carlo Techniques}
+        Monte Carlo techniques are a class of computational techniques that apply random sampling to generate estimates. Such techniques can be used in
+        estimating various aspects of a system's requirements. A sample application is deliberately planting $N$ bugs in a system, and then measuring how
+        many are reported by developers or testers. The resulting bugs to reported bugs ratio can be used to give a rough estimate of the total number of
+        unreported bugs in the system.
+
+    \subsection{Prioritizing Quality Requirements}
+      Different quality requirements can come into conflict with one another. Common areas of conflict include maintainability vs robustness, performance
+      vs security, and performance vs reuse. Conflicts may also occur between quality and functional requirements (e.g. performance vs certain features).
+      In such cases, requirements need to be prioritized.
+
 \end{document}
