@@ -1,5 +1,6 @@
 \documentclass[12pt,titlepage]{article}
 \usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
 \usepackage{parskip}
 
 \usepackage{hyperref}
@@ -592,5 +593,174 @@
       Different quality requirements can come into conflict with one another. Common areas of conflict include maintainability vs robustness, performance
       vs security, and performance vs reuse. Conflicts may also occur between quality and functional requirements (e.g. performance vs certain features).
       In such cases, requirements need to be prioritized.
+
+  \section{Prioritizing Requirements}
+    A system may have more requirements than can actually be implemented (e.g. too many requirements or requirements that conflict with one another).
+    In such cases, requirements must be balanced with a project's limited resources in mind. This may be an issue of determining what features to add
+    to an MVP or to a periodic release.
+
+    \subsection{Prioritizing Criteria}
+      A requirement's value is its potential contribution to customer satisfaction. Requirements can be prioritized by their value to cost ratios.
+
+    \subsection{Grouping Requirements}
+      A common prioritization technique is grouping requirements into 3-4 groups based on their urgency. An example of a set of groups may be
+      ``Critical'', ``Standard'', and ``Optional''.
+
+    \subsection{Ranking Requirements}
+      It is possible to stack rank all requirements, though this gives little info on the relative differences between ranked requirements. This motivates
+      the development of different ranking techniques.
+
+      \subsubsection{100-Dollar Test}
+        In this ranking system, stakeholders are given 100 ``dollars'' (i.e. points) to distribute among a project's requirements.
+
+      \subsubsection{Kano Model}
+        Kano models serve to analyze requirements based on customer perception. Kano charts have lines for features over two axis, one for customer
+        satisfaction and one for execution. The shape of the lines can provide information on the type of feature, with the main types being:
+        \begin{itemize}
+          \item \textbf{Basic:} Poor execution and low satisfaction to good execution and neutral satisfaction indicates functionality taken for granted.
+          \item \textbf{Performance:} Poor execution and low satisfaction to good execution and high satisfaction indicates a core requirement
+            the customer expects.
+          \item \textbf{Excitement:} Poor execution and neutral satisfaction to good execution and high satisfaction indicates useful functionality
+            that is useful but not expected.
+          \item \textbf{Indifferent:} Poor execution and neutral satisfaction to good execution and neutral satisfaction indicates a requirement the
+            customer does not care about.
+        \end{itemize}
+
+        Kano surveys can be run to collect data to construct Kano models. The purpose of such surveys is to gauge customer reaction if a particular feature is
+        included/excluded from a system. Generally speaking, the importance of features is Basic $>$ Performance $>$ Excitement $>$ Indifferent.
+
+      \subsubsection{Analytical Hierarchy Process (AHP)}
+        AHP is a requirement prioritization technique based on stakeholders' pairwise comparisons of requirements.
+        These comparisons are used to produce a relative ranking of all requirements. This technique is based on that absolute values of requirements
+        are hard to judge, and small comparisons are usually easier to manage. AHP analysis consists of the following steps:
+
+        \begin{enumerate}
+          \item
+            Form a square matrix that stores a score between all pairs of requirements. If one comparison of requirements $R1$ and $R2$ is assigned a score of
+            $A$, then the reciprocal comparison $R2$ and $R1$ is assigned a score of $\frac{1}{a}$.
+            \begin{center}
+              \begin{tabular}{ |c|c|c|c|c| } 
+                \hline
+                     & Req1 & Req2 & Req3 & Req4 \\ 
+                \hline
+                Req1 & $1$ & $\frac{1}{3}$ & $2$ & $4$ \\ 
+                \hline
+                Req2 & $3$ & $1$ & $5$ & $3$ \\ 
+                \hline
+                Req3 & $\frac{1}{2}$ & $\frac{1}{5}$ & $1$ & $\frac{1}{3}$ \\ 
+                \hline
+                Req4 & $\frac{1}{4}$ & $\frac{1}{3}$ & $3$ & $1$ \\ 
+                \hline
+              \end{tabular}
+            \end{center}
+
+          \item Normalize the columns of the matrix.
+            \begin{center}
+              \begin{tabular}{ |c|c|c|c|c| } 
+                \hline
+                     & Req1 & Req2 & Req3 & Req4 \\ 
+                \hline
+                Req1 & $0.21$ & $0.18$ & $0.18$ & $0.48$ \\ 
+                \hline
+                Req2 & $0.63$ & $0.54$ & $0.45$ & $0.36$ \\ 
+                \hline
+                Req3 & $0.11$ & $0.11$ & $0.09$ & $0.04$ \\ 
+                \hline
+                Req4 & $0.05$ & $0.18$ & $0.27$ & $0.12$ \\ 
+                \hline
+              \end{tabular}
+            \end{center}
+
+          \item Sum up reach row.
+            \begin{center}
+              \begin{tabular}{ |c| } 
+                \hline
+                Sum \\ 
+                \hline
+                $1.05$ \\
+                \hline
+                $1.98$ \\
+                \hline
+                $0.34$ \\
+                \hline
+                $0.62$ \\
+                \hline
+              \end{tabular}
+            \end{center}
+
+          \item Report the normalized, relative values of each requirement.
+            \begin{center}
+              \begin{tabular}{ |c| } 
+                \hline
+                Values \\
+                \hline
+                $26\%$ \\
+                \hline
+                $50\%$ \\
+                \hline
+                $9\%$ \\
+                \hline
+                $16\%$ \\
+                \hline
+              \end{tabular}
+            \end{center}
+        \end{enumerate}
+
+        To check for consistency, the following steps can be applied:
+          \begin{enumerate}
+            \item Multiply the comparison matrix by the priority vector. Using the above matrix and vector, this should yield:
+            $$
+              \begin{bmatrix}
+                1.22 \\
+                2.18 \\
+                0.37 \\
+                0.64 \\
+              \end{bmatrix}
+            $$
+
+            \item Divide each element by the corresponding element in the priority matrix.
+            $$
+              \begin{bmatrix}
+                4.66 \\
+                4.40 \\
+                4.29 \\
+                4.13 \\
+              \end{bmatrix}
+            $$
+
+            \item Compute the principle eigenvalue.
+            $$
+              \frac{4.66 + 4.40 + 4.29 + 4.13}{4} = 4.37
+            $$
+
+            \item Calculate the consistency index.
+            $$
+              CI = \frac{4.37 - n}{n - 1} = \frac{4.37 - 4}{4 - 1} = 0.12
+            $$
+
+            \item Compare against consistency index of random matrix.
+            $$
+              CR = \frac{0.12}{0.90} = 0.14
+            $$
+          \end{enumerate}
+
+    \subsection{Challenges}
+      Common challenges faced when prioritizing requirements include:
+      \begin{itemize}
+        \item Many requirements deemed essential
+        \item Large number of requirements to prioritize
+        \item Conflicting priorities
+        \item Changing priorities
+        \item Effective collaboration between developers and stakeholders
+        \item Subjective prioritization
+      \end{itemize}
+
+    \subsection{Benefits}
+      Benefits commonly gained from requirements prioritization include:
+      \begin{itemize}
+        \item Focusing on important requirements first, which improves customer satisfaction.
+        \item Determining how to allocate limited project resources.
+        \item Encouraging stakeholders to have a broader view of project requirements (i.e. consider other stakeholder requirements, not just their own).
+      \end{itemize}
 
 \end{document}
