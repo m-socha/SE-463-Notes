@@ -54,7 +54,7 @@
   \section{Business Model}
     \subsection{Traditional Product Model}
       A traditional ``waterfall'' style of development relies heavily on the initial implementation meeting customer needs. This
-      approach often leads to requirement-related problems, since the business and development team might not understand the
+      approach often leads to requirements-related problems, since the business and development team might not understand the
       customer needs or the customer needs might change, and a waterfall model offers little room to refine these requirements.
 
     \subsection{Lean Product Development Model}
@@ -99,17 +99,17 @@
   \newpage
 
   \section{Hypothesis Testing}
-    Purpose of hypothesis testing is to validate or disprove guesses in a project's business model. Hypothesis testing is generally
+    The purpose of hypothesis testing is to validate or disprove guesses in a project's business model. Hypothesis testing is generally
     conducted by performing pass/fail experiments through market research or customer interviews. Hypothesis being disproved can lead
     to learning, after which the hypothesis can be pivoted based on new understanding.
 
     \subsection{Hypothesis}
-      A hypothesis is a tentative guess about a phenomenon of interest that is testable and falsifiable. The phenomenon of interest
-      (e.g. characteristic of customer problem) are considered to be dependent variables, while independent variables affect the
+      A hypothesis is a tentative guess about a phenomenon of interest that is testable and falsifiable. The phenomena of interest
+      (e.g. characteristics of customer problem) are considered to be dependent variables, while independent variables affect the
       phenomenon of interest. A good hypothesis must be testable (i.e. possible to observe effects of independent variables on
       dependent variables) and falsifiable.
 
-      \subsection{Falsifiable Hypothesis}
+      \subsubsection{Falsifiable Hypothesis}
         A falsifiable hypothesis is a statement that can easily be proven wrong. Specific and testable statements are more falsifiable
         than vague ones. Falsifiable hypothesis often have somewhat of a universally quantification aspect (e.g. all, most, etc), rather
         than merely existential quantification.
@@ -117,18 +117,14 @@
     \subsection{Testing Risks}
       Uncertainty simply means that there are multiple possibilities. Risk tends to involve uncertainty, with some of the possibilities
       leading to failure. The three largest risks to a project are:
-
-        \subsubsection{Customer Risk}
-          e.g. Is there a viable customer segment, and what are their risks?
-
-        \subsubsection{Product Risk}
-          e.g. How do customers rank the top three problems?
-
-        \subsubsection{Market Risk}
-          e.g. How do customers solve these problems today?
+      \begin{itemize}
+        \item \textbf{Customer Risk} e.g. Is there a viable customer segment, and what are their risks?
+        \item \textbf{Product Risk} e.g. How do customers rank the top three problems?
+        \item \textbf{Market Risk} e.g. How do customers solve these problems today?
+      \end{itemize}
 
     \subsection{Problem Interview}
-      Interviews will generally follow the order below:
+      Interviews to test hypotheses generally follow the plan below:
       \begin{itemize}
         \item Welcome
         \item Collect demographics (i.e. test customer segment)
@@ -142,8 +138,8 @@
     \subsection{Processing Results}
       It is important to home in on early adopters. As more information is gathered, it may help to refine the problem or pivot the hypothesis.
       It helps to continue gathering results until they are fairly consistent. Good indications that enough testing has been done are that
-      you can identify the demographics of an early adopter, have a must-have (i.e. critical problem to work on first) problem, and can describe
-      how customers currently solve this problem.
+      the demographics of an early adopter can be identified, there is a must-have (i.e. critical problem to work on first) problem, and there is
+      an understanding of how customers currently solve this problem.
 
   \newpage
 
@@ -153,7 +149,7 @@
 
     \subsection{Owners/Clients/Champions}
       The owner/client is the group paying for the software to be developed. They are usually considered to be the ultimate/champion stakeholder,
-      since they often have the final say in a project. Examples include a client in a consultancy project, or the company developers are working
+      since they often have the final say in a project. Examples include a client in a consultancy project, or the company that developers are working
       for in an internal project.
 
     \subsection{Customers}
@@ -173,7 +169,7 @@
           \item Application domain expertise, technical expertise
           \item Platform of use
           \item Preferred language
-          \item Disfavored users (users who should not have access for security, legal or safety reasons, such as kids on some social media platforms)
+          \item Disfavored users, which are users who should not have access for security, legal or safety reasons (e.g. kids on some social media platforms)
         \end{itemize}
 
     \subsection{Personas}
@@ -186,7 +182,7 @@
       \end{itemize}
 
     \subsection{Domain Expert}
-      Domain experts understand the problem domain very well, and familiar with typical users, their expectations, and potential deployment environments.
+      Domain experts understand the problem domain very well, are familiar with typical users, their expectations, and potential deployment environments.
       Note that domain experts need not know much about software engineering.
 
     \subsection{Software Engineer}
@@ -209,8 +205,8 @@
   \section{User Requirements}
 
     \subsection{Use Cases}
-      A use case represents some sort of end-to-end functionality in a system, capturing both its triggering event and the complete system response. Well-defined
-      use cases should not overlap much with one another. Time-triggered use cases feature time as their triggering event.
+      A use case represents some sort of end-to-end functionality in a system, capturing both its triggering event and the complete system response.
+      Time-triggered use cases feature time as their triggering event. Well-defined use cases should not overlap much with one another.
 
       \subsection{Actors}
         An actor is an entity that interacts with the described system, which may include users or other systems. A supporting actor provides some service to the
@@ -222,8 +218,8 @@
 
       \subsection{Modifying Use Cases}
         \begin{itemize}
-          \item <<include>> is used to add a sub use case that is used in multiple other use cases
-          \item <<extend>> is used to add a sub use case that is used in multiple other use cases
+          \item $<<$include$>>$ is used to add a sub use case that is used in multiple other use cases
+          \item $<<$extend$>>$ is used to extend or replace the end of an existing use case
         \end{itemize}
         Note that well-described systems tend to use these modifiers sparingly.
 
@@ -235,9 +231,9 @@
         User stories are an alternative to use-case descriptions for describing a system. Instead of being told from the system's perspective, user stories
         provide a description of something a user wants to be able to do (i.e. user requirements). The parts of a successfully managed user story are:
         \begin{itemize}
-          \item \textbf{Card:} The initial description, often phrased as ``As a <role>, I want <something> so that <benefit>''
+          \item \textbf{Card:} The initial description, often phrased as ``As a $<$role$>$, I want $<$something$>$ so that $<$benefit$>$''
           \item \textbf{Conversation:} Discussion with product owner to determine requirement details
-          \item \textbf{Confirmation:} Criteria for determining whether implementation meets requirements (conditions of satisfaction are described
+          \item \textbf{Confirmation:} Criteria for determining whether an implementation meets requirements (conditions of satisfaction are described
           from the system's perspective)
         \end{itemize}
 
@@ -271,15 +267,15 @@
 
     \subsection{Scenarios}
       A scenario is one full execution path through a use case, listing only observable actions between a system and external actors. A use case can
-      be considered to be a collection of success and failure scenarios initiated by an external actor to achieve a particular goal. An example scenario
-      for a banking system is below:
+      be considered to be a collection of success and failure scenarios initiated by an external actor to achieve a particular goal. Below is an example
+      scenario for a banking system:
       \begin{enumerate}
-        \item User requests to withdraw funds, specifies amount
-        \item Bank authenticates user
-        \item Bank checks account has sufficient funds
-        \item Bank dispenses cash and receipt
-        \item Bank records the transaction
-        \item User takes case and receipt, leaves
+        \item User requests to withdraw funds, specifies amount.
+        \item Bank authenticates user.
+        \item Bank checks account has sufficient funds.
+        \item Bank dispenses cash and receipt.
+        \item Bank records the transaction.
+        \item User takes case and receipt, leaves.
       \end{enumerate}
 
       A general template for a scenario includes:
@@ -347,8 +343,7 @@
 
   \section{Requirements Elicitation}
     Requirements elicitation is the process of collecting requirements for a system. These requirements can be gathered from many types of sources,
-    including stakeholders, existing documentation, similar or previous systems, and the environment of a system. Various elicitation techniques
-    can be applied, including stakeholder analysis, domain analysis, brainstorming, and pilot experimentation.
+    including stakeholders, existing documentation, similar or previous systems, and the environment of a system.
 
     \subsection{Artifact-based Elicitation}
       The key idea behind artifact-based elicitation is to gather requirements from existing artifacts (e.g. documentation, existing systems)
@@ -374,15 +369,16 @@
 
     \subsection{Stakeholder-based Elicitation}
       The key idea behind stakeholder-based elicitation is to gather detailed requirements information specific to particular problems or stakeholders.
-      Elicitation techniques considered to be artifact-based include stakeholder analysis, questionnaires, interviews, observations, task demos, and personas.
+      Elicitation techniques considered to be stakeholder-based include stakeholder analysis, questionnaires, interviews, observations, task demos, and personas.
 
       \subsubsection{Interviews}
         Interviews can be useful for gathering information specific to particular stakeholders, such as their specific problems or potential areas of conflict.
         To gather more information, it helps to ask open questions and allowing the stakeholder sufficient time to formulate a response. Examples of open questions
-        include ``Why would you use this product?'', or ``What problems do you expect this product to solve for you?''. Interviews in groups can help in sharing more
-        ideas, taking the spotlight off specific individuals, and pre-emptively identifying conflicts among stakeholders. Common mistakes during interviews include
-        not interviewing the right people, asking directed questions early on, letting one person dominate a group discussion, or allowing the interview results to
-        over-specify requirements.
+        include ``Why would you use this product?'', or ``What problems do you expect this product to solve for you?''.
+
+        Interviews in groups can help in sharing more ideas, taking the spotlight off specific individuals, and pre-emptively identifying conflicts among stakeholders.
+        Common mistakes during interviews include not interviewing the right people, asking directed questions early on, letting one person dominate a group discussion,
+        or allowing the interview results to over-specify requirements.
 
       \subsubsection{Questionnaires}
         Questionnaires can be useful in gathering insights from a wide group of people, and can consist of open question (to gather suggestions) or closed questions
@@ -423,7 +419,7 @@
 
       \subsubsection{Brainstorming}
         Brainstorming is a group activity designed to generate a large number of new and creative ideas. Brainstorming sessions start with an idea generation phase, where
-        participants are encourages to produce many new ideas, and judgement is suspended. Later, possibly with a new set of participants, the generated ideas are analyzed,
+        participants are encouraged to produce many new ideas, and judgement is suspended. Later, possibly with a new set of participants, the generated ideas are analyzed,
         and some can be expanded on even further.
 
       \subsubsection{Creativity Workshops}
@@ -444,7 +440,7 @@
       information based on requirements includes class names, key attribute names and association/roles names, while most other information is based on design.
 
     \subsection{Conceptual Classes}
-      Conceptual classes provide a high-level overview of what a class does. Conceptual class category examples include business transactions (e.g FlightReservation), events
+      Conceptual classes provide a high-level overview of what a class does. Conceptual class category examples include business transactions (e.g. FlightReservation), events
       (e.g. FlightDeparture) and descriptions of things (e.g. FlightDescription).
 
     \subsection{Finding Domain Entities}
@@ -460,7 +456,7 @@
       initially be modeled as just a name, with implementation details added later.
 
     \subsection{Associations}
-      Associations represent relevant relationships between multiple conceptual classes. Physical (e.g. ``partof'') relationships are typically good candidates, while transient
+      Associations represent relevant relationships between multiple conceptual classes. Physical (e.g. ``part of'') relationships are typically good candidates, while transient
       (e.g. ``communicates with'') relationships tend to be weaker. Where appropriate, associations can be named, typically with short verbs.
 
       \subsubsection{Roles and Multiplicities}
@@ -498,7 +494,7 @@
         on its properties (e.g. identify a house on a street by its street name).
 
       \subsubsection{Temporal Objects}
-        In some situations, it is appropriate for a model to store a history of values for an object rather than just the current object.
+        In some situations, it is appropriate for a model to store a history of values for an object rather than just the current value.
 
       \subsubsection{Class-Scope Attributes}
         Class-scope attributes have a changeable value that is shared by all object instances of a class. Class-scope attributes can lead to trouble if different instances require
@@ -520,15 +516,15 @@
 
     \subsection{Prototyping Methodologies}
 
-      \subsection{Throwaway Prototyping}
+      \subsubsection{Throwaway Prototyping}
         Throwaway prototypes are used to learn more about a problem, after which they are discarded and not used in a final product. The development of these systems is designed to be
         done rapidly, with a horizontal strategy often applied that only builds up a single layer at a time (e.g. only build UI for UI-related experimentation). Throwaway prototyping can
         be useful for gathering information early on (low risk). However, it may result in a lack of formal documentation, unrealistic customer expectations, and in some situations with
-        major time constraints can end up getting developed into a final product (typically leads to poor design).
+        major time constraints can end up getting developed into a final product (which typically leads to poor design).
 
-      \subsection{Evolutionary Prototyping}
+      \subsubsection{Evolutionary Prototyping}
         Evolutionary prototyping involves learning about a solution to a problem. Emphasis is placed on the ``risky'' parts of a solution first and the system is developed incrementally,
-        with a vertical strategy that builds up all layers feature-by-feature typically preferred. Evolutionary prototypes tend to be good at evolving to requirements changes, and can be
+        typically with a vertical strategy that builds up all layers feature-by-feature. Evolutionary prototypes tend to be good at evolving to requirements changes, and can be
         reverted to their previous increment should some change introduce major problems. However, evolutionary prototypes run the risk of poor early architectural choices, poorly
         structured systems, and often lack high-level direction and control.
 
@@ -562,7 +558,7 @@
       systems is the degree to which these attributes are required, and their relative importance.
 
     \subsection{Fit Criteria}
-      Fit criteria quantify the extend to which a quality requirement must be met. Examples include:
+      Fit criteria quantify the extent to which a quality requirement must be met. Examples include:
       \begin{itemize}
         \item System must be down no more than 5 minutes a year.
         \item 90\% of users should be able to create an account within 2 minutes.
@@ -592,7 +588,9 @@
     \subsection{Prioritizing Quality Requirements}
       Different quality requirements can come into conflict with one another. Common areas of conflict include maintainability vs robustness, performance
       vs security, and performance vs reuse. Conflicts may also occur between quality and functional requirements (e.g. performance vs certain features).
-      In such cases, requirements need to be prioritized.
+      In such cases, requirements need to be prioritized. This is expanded on further in the next section.
+
+  \newpage
 
   \section{Prioritizing Requirements}
     A system may have more requirements than can actually be implemented (e.g. too many requirements or requirements that conflict with one another).
@@ -620,7 +618,7 @@
           \item \textbf{Basic:} Poor execution and low satisfaction to good execution and neutral satisfaction indicates functionality taken for granted.
           \item \textbf{Performance:} Poor execution and low satisfaction to good execution and high satisfaction indicates a core requirement
             the customer expects.
-          \item \textbf{Excitement:} Poor execution and neutral satisfaction to good execution and high satisfaction indicates useful functionality
+          \item \textbf{Excitement:} Poor execution and neutral satisfaction to good execution and high satisfaction indicates functionality
             that is useful but not expected.
           \item \textbf{Indifferent:} Poor execution and neutral satisfaction to good execution and neutral satisfaction indicates a requirement the
             customer does not care about.
@@ -630,14 +628,14 @@
         included/excluded from a system. Generally speaking, the importance of features is Basic $>$ Performance $>$ Excitement $>$ Indifferent.
 
       \subsubsection{Analytical Hierarchy Process (AHP)}
-        AHP is a requirement prioritization technique based on stakeholders' pairwise comparisons of requirements.
-        These comparisons are used to produce a relative ranking of all requirements. This technique is based on that absolute values of requirements
-        are hard to judge, and small comparisons are usually easier to manage. AHP analysis consists of the following steps:
+        AHP is a requirement prioritization technique based on stakeholders' pairwise comparisons of requirements. These comparisons are used to produce a relative
+        ranking of all requirements. This technique is based on the idea that absolute values of requirements are hard to judge, and small comparisons are usually
+        easier to manage. AHP analysis consists of the following steps:
 
         \begin{enumerate}
           \item
             Form a square matrix that stores a score between all pairs of requirements. If one comparison of requirements $R1$ and $R2$ is assigned a score of
-            $A$, then the reciprocal comparison $R2$ and $R1$ is assigned a score of $\frac{1}{a}$.
+            $A$, then the reciprocal comparison $R2$ and $R1$ is assigned a score of $\frac{1}{a}$. An example is below.
             \begin{center}
               \begin{tabular}{ |c|c|c|c|c| } 
                 \hline
