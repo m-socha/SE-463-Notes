@@ -794,4 +794,42 @@
       Residual risk is a kind of risk that is expected to remain even after all risk countermeasures are taken. Some residual risk is acceptable for a
       project; the purpose of countermeasures is to mitigate risk where possible.
 
+  \section{Specifications}
+
+    \subsection{Terminology}
+      \begin{itemize}
+        \item An \textbf{environment} is the part of the outside world that is relevant to some system.
+        \item An \textbf{interface} refers to phenomena shared between the system and the environment.
+        \item A \textbf{requirement} is a condition or capability to be achieved in the environment.
+        \item A \textbf{system} is a proposed solution for achieving requirements. Interactions with the outside environment are performed
+          through an interface.
+        \item A \textbf{specification} is a description of a proposed system.
+      \end{itemize}
+
+    \subsection{Requirements vs Specifications}
+      Requirements are statements of desired properties. They describe changes to an environment without referring to a system. These descriptions are often
+      high-level and get elaborated on as development progresses.
+
+      Specifications are descriptions of how a proposed system should behave to satisfy requirements. These are typically expressed in terms of a system's
+      interface, and tend to be more concrete and detailed than requirements.
+
+    \subsection{Deriving Requirements from Specifications}
+      It is often useful for a set of specifications (Spec) to logically imply to set of requirements (Req). However, this is often not possible without additional
+      information or assumptions on how the environment behaves. These domain assumptions (Dom) combined with specifications being able to determine requirements
+      can be considered to be a fundamental law of requirements.
+
+      $$ Dom, Spec \implies Req $$
+
+    \subsection{Deriving Specifications}
+      Specifications can also be derived with the help of a set of requirements and domain assumptions. The following is considered for each requirement:
+      \begin{itemize}
+        \item Determine any specs that for how the system should control the environment to meet this requirement. This may require adding interface phenomena
+          so that the system can perform the necessary interactions with the environment.
+        \item Determine any domain assumptions necessary to link environmentally-controlled phenomena to system-controlled phenomena.
+      \end{itemize}
+
+      Once these specifications are determined, the following should hold:
+      $$ Dom, Spec \implies Req $$
+      $$ Dom \land Spec \text{ is satisfiable}$$
+
 \end{document}
