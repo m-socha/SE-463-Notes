@@ -836,4 +836,64 @@
       $$ Dom, Spec \implies Req $$
       $$ Dom \land Spec \text{ is satisfiable}$$
 
+  \newpage
+
+  \section{Object Constraint Language (OCL)}
+    A business rule is an assertion that defines or constrains some aspect of work. Examples include:
+    \begin{itemize}
+      \item Rental agreements must be no longer than four weeks.
+      \item Frequent customers receive a 10\% discount.
+    \end{itemize}
+
+    Object Constraint Language (OCL) can be used to express business rules over UML models. OCL allows for relating classes even when they have no direct UML
+    association, and for expressing queries over objects and collections of objects. Types of OCL constraints and expressions include:
+    \begin{itemize}
+      \item Invariant properties about objects, links, and attribute values
+      \item Initial variable or attribute values
+      \item Pre/post conditions of functions
+      \item Guard conditions and assignment expressions in state machine models
+    \end{itemize}
+
+    \subsection{Constraint Expressions}
+      OCL allows for expressions over:
+      \begin{itemize}
+        \item Attributes
+        \item Navigations derived from associations and aggregations
+        \item Rolename on far end of association
+        \item Class name on far end of association
+        \item Literal values
+      \end{itemize}
+
+    \subsection{Operations on Collections}
+      While model-defined names and OCL operations are prefaced with dots, OCL operations on collections are prefaced with arrows (-$>$).
+      For example, a sample OCL expression that counts the number of vehicles in a rental agreement is self.RentalAgreement.Vehicle-$>$size()
+
+    \subsection{Filtering Operations}
+      Filtering operations extract specific elements from an existing collection based on the value of some expression. The select operation
+      returns all values that satisfy an expression, while reject returns all values that falsify that expression. A sample filtering operation
+      that selects all red cars in a company is self.owns-$>$select(color=``red'')
+
+    \subsection{Collect Operation}
+      A collect operation iterates over a collection, computes a value for each element, and returns that value in a new collection. A sample
+      use of a collect operation that returns the prices of rental agreements is self.RentalAgreement-$>$collect(price)
+
+    \subsection{Quantification}
+
+      \subsubsection{Exists}
+        The exists operation is used to assert that at least one element in a collection satisfies some expression. An example of an exists
+        operation that asserts every rental agreement has at least one black car is self.RentalAgreement.Vehicle-$>$exists(color=``black'')
+
+      \subsubsection{Forall}
+        The forall operation is used to assert that all elements in a collection satisfy some expression. An example of an forall operation
+        that asserts all rental cars are white is self.owns-$>$forall(color=``white'')
+
+    \subsection{OCL Tools}
+      OCL is supported by various types of tools, including:
+      \begin{itemize}
+        \item Parsers and type checkers
+        \item Evaluators that check OCL expressions against UML class models
+        \item Debuggers that step through an OCL expression and evaluate each subsection
+        \item Code generators that translate OCL expressions into run-time assertions
+      \end{itemize}
+
 \end{document}
