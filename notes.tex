@@ -921,4 +921,78 @@
       Various group and individual strategies can be applied to resolving conflicts. When applying these strategies, it is important to consider
       the relationship stakeholders have with one another, as well as any goals they may share.
 
+  \section{Behavior Modeling}
+
+    \subsection{UML State Machines}
+      State machines can be used to model behavior based on the history of received inputs. UML state machines model the flow of control between
+      states in a system.
+
+      \subsubsection{States}
+        States partition a system into distinct modes of operation. An example would be a turnstile having the states of open, closed, and rotating.
+        A single state should have:
+        \begin{itemize}
+          \item Equivalence of input traces
+          \item Equivalence of future behavior
+          \item Distinct set of input events
+          \item Distinct reactions to input events
+          \item Input processing done internally
+        \end{itemize}
+
+        Each state machine has an initial state. The designator of this initial state may is a pseudo-state, since no time is actually spent in the state.
+        Some state machines may also have a final state, which is a real (non-pseudo) state.
+
+      \subsubsection{Transitions}
+        Transitions represent observable execution steps. A transition label may consist of the following parts:
+        \begin{itemize}
+          \item \textbf{event(args):} Input event that triggers transition
+          \item \textbf{[condition]:} Guard condition; transition does not occur unless this expression is true
+          \item \textbf{/action:} Simple, non-interruptible action performed
+        \end{itemize}
+        A transition with no event or condition is enabled when the source state is idle.
+
+      \subsubsection{Inputs}
+        Inputs represent events that change their environment. Common types of inputs include:
+        \begin{itemize}
+          \item \textbf{Time events}, which occur at a specific time (e.g. today at 8pm) or after a specified passage of time (e.g. 10 seconds after event A)
+          \item \textbf{Change events}, which occur when some condition becomes true (e.g. temperature is at least 100 degrees)
+        \end{itemize}
+
+      \subsubsection{Actions}
+        Actions are atomic responses to an event. Sample actions include an output message or a change to some interface phenomena.
+
+      \subsubsection{Other UML State Diagram Concepts}
+        A few other UML state diagram details include:
+        \begin{itemize}
+          \item \textbf{Hierarchical States:} States with common behaviors or exiting transitions can be grouped together, and can treated externally as a
+            single state.
+          \item \textbf{Determinism and priority:} Deal with handling multiple possible transitions (e.g. conditions for two different change events
+            becoming true at one).
+          \item \textbf{History:} Pseudo-states known as history states (depicted as H) represent the most recent active direct substate of their containing state.
+            Special types of history states known as deep history states (depicted as H*) represent the most recent active leaf-substate of their containing state.
+        \end{itemize}
+
+    \subsection{Creating Behavior Models}
+      Below is a general guideline for creating behavior models:
+      \begin{enumerate}
+        \item Identify input and output events (can be useful to reference domain model).
+        \item Partition the system into states. State types include:
+          \begin{itemize}
+            \item \textbf{Activity states}, where a system performs some operation
+            \item \textbf{Idle states}, where a system waits for input
+            \item \textbf{System modes}, where different states are used to distinguish between different event reactions
+          \end{itemize}
+        \item Model the behavior for each input at each state. For each state, the system's response to an event can be any of the following:
+          \begin{itemize}
+            \item Event can occur and is handled (transition exists).
+            \item Event can occur, but results in error (transition exists to report error).
+            \item Event can occur, but is ignored (no transition).
+            \item Event cannot occur (no transition).
+          \end{itemize}
+      \end{enumerate}
+
+    \subsection{Sequence Diagrams}
+      Sequence diagrams illustrate the interactions between objects over time. While state diagrams describe all allowable scenarios, sequence diagrams
+      only describe a single one. However, sequence diagrams can be useful in validating specific scenarios in state diagrams, and also tend to be more
+      useful for communicating with customers.
+
 \end{document}
