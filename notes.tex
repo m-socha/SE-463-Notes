@@ -940,6 +940,15 @@
           \item Input processing done internally
         \end{itemize}
 
+        States can contain:
+        \begin{itemize}
+          \item Entry actions, which occur every time the state is entered
+          \item Exit actions, which occur every time the state is exited
+          \item Internal actions
+        \end{itemize}
+
+        These actions are uninterruptible. On the other hand, activities are interruptible, and are usually expected to take a substantial amount of time.
+
         Each state machine has an initial state. The designator of this initial state may is a pseudo-state, since no time is actually spent in the state.
         Some state machines may also have a final state, which is a real (non-pseudo) state.
 
@@ -962,6 +971,20 @@
       \subsubsection{Actions}
         Actions are atomic responses to an event. Sample actions include an output message or a change to some interface phenomena.
 
+      \subsubsection{Concurrent Regions}
+        Some systems contain several ``subsystems'' with orthogonal behavior. These systems can be modeled as concurrent state machines, where multiple
+        regions (i.e. substate machines) operating concurrently form a state machine for the entire system. The execution of a concurrent state machine
+        is considered complete once all regions have entered a final state. Alternatively, a termination state may be used to immediately end system
+        execution, even when other regions have not completed.
+
+        Concurrent regions can interact with one another in the following ways:
+        \begin{itemize}
+          \item Reacting to the same input.
+          \item Interacting with the same interface phenomenon.
+          \item One region generating an event that another region handles as input.
+          \item A transition's guard condition containing the state of a different region (not part of the formal UML spec, but can be useful).
+        \end{itemize}
+
       \subsubsection{Other UML State Diagram Concepts}
         A few other UML state diagram details include:
         \begin{itemize}
@@ -973,24 +996,46 @@
             Special types of history states known as deep history states (depicted as H*) represent the most recent active leaf-substate of their containing state.
         \end{itemize}
 
-    \subsection{Creating Behavior Models}
-      Below is a general guideline for creating behavior models:
-      \begin{enumerate}
-        \item Identify input and output events (can be useful to reference domain model).
-        \item Partition the system into states. State types include:
-          \begin{itemize}
-            \item \textbf{Activity states}, where a system performs some operation
-            \item \textbf{Idle states}, where a system waits for input
-            \item \textbf{System modes}, where different states are used to distinguish between different event reactions
-          \end{itemize}
-        \item Model the behavior for each input at each state. For each state, the system's response to an event can be any of the following:
-          \begin{itemize}
-            \item Event can occur and is handled (transition exists).
-            \item Event can occur, but results in error (transition exists to report error).
-            \item Event can occur, but is ignored (no transition).
-            \item Event cannot occur (no transition).
-          \end{itemize}
-      \end{enumerate}
+      \subsubsection{Good Style}
+        Some recommendations for state machines include:
+        \begin{itemize}
+          \item States should model modes of operation, and transitions should model flow of control.
+          \item Fewer transitions are preferable (hierarchy can help with this).
+          \item Concurrent regions should be applied if they can simplify the model.
+          \item Common behavior should not be repeated (hierarchy and entry/exit actions can help with this).
+        \end{itemize}
+
+      \subsubsection{Creating Behavior Models}
+        Below is a general guideline for creating behavior models:
+        \begin{enumerate}
+          \item Identify input and output events (can be useful to reference domain model).
+          \item Partition the system into states. State types include:
+            \begin{itemize}
+              \item \textbf{Activity states}, where a system performs some operation
+              \item \textbf{Idle states}, where a system waits for input
+              \item \textbf{System modes}, where different states are used to distinguish between different event reactions
+            \end{itemize}
+          \item Model the behavior for each input at each state. For each state, the system's response to an event can be any of the following:
+            \begin{itemize}
+              \item Event can occur and is handled (transition exists).
+              \item Event can occur, but results in error (transition exists to report error).
+              \item Event can occur, but is ignored (no transition).
+              \item Event cannot occur (no transition).
+            \end{itemize}
+        \end{enumerate}
+
+      \subsubsection{Validation}
+        Some important validations to carry out on UML state machines include:
+        \begin{itemize}
+          \item Avoiding inconsistencies (e.g. multiple transitions are not leaving a state under the same conditions)
+          \item Ensuring completeness (e.g. valid input always associated with some transition)
+          \item Walkthrough tests (e.g. state machine flows match use-case scenarios)
+        \end{itemize}
+
+    \subsection{Uses of State Machine Models}
+      State machine models can be used to create mockups, which include rough screen contents and navigation between screens. State machines can also
+      serve as navigation diagrams, where transitions are triggered by user input (e.g. mouse clicks) and the states correspond to ``screenshots'' of
+      the UI.
 
     \subsection{Sequence Diagrams}
       Sequence diagrams illustrate the interactions between objects over time. While state diagrams describe all allowable scenarios, sequence diagrams
