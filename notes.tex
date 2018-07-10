@@ -2,6 +2,8 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath}
 \usepackage{parskip}
+\usepackage{amssymb}
+\usepackage{wasysym}
 
 \usepackage{hyperref}
 \hypersetup{
@@ -1041,5 +1043,48 @@
       Sequence diagrams illustrate the interactions between objects over time. While state diagrams describe all allowable scenarios, sequence diagrams
       only describe a single one. However, sequence diagrams can be useful in validating specific scenarios in state diagrams, and also tend to be more
       useful for communicating with customers.
+
+  \newpage
+
+  \section{Temporal Logic}
+
+    \subsection{Overview}
+      Descriptive specification notations can describe constrains on the behavior of a system. An example is OCL, which expresses constraints on object models.
+      Temporal logic describes constraints on variables (e.g. environmental variables, I/O phenomena, events, states) that can vary over time. Temporal
+      constraints can be effective when describing behavior that spans multiple steps.
+
+      Examples of temporal logic expressed in natural language include:
+      \begin{itemize}
+        \item Dialing a phone number always results in either the call being connected or a busy-tone.
+        \item If a car approaches the intersection, the light in its direction will eventually be green.
+      \end{itemize}
+
+    \subsection{States}
+      A sequence of states represents the execution of a system. A state formula is a predicate logic property that is evaluated for a particular execution state.
+      A state formula with a predicate logic expression $p$ being applied to a state $s$ can be expressed as $s \vDash p$.
+
+    \subsection{Timed Logic}
+
+      \subsubsection{Explicit Time}
+        Each variable is considered to be a function of time. The execution states can be enumerated (i.e. 0, 1, 2, ...), after which each variable can be treated
+        as a function of one of these states (e.g. $x(0) = 1$ means that the variable $x$ is 1 in the initial state). These expressions can also be used to relate
+        variables across different states (e.g. $x(0) >= y(1)$).
+
+        Constraints where the precise timing of events is specified as known as real-time constraints.
+
+      \subsubsection{Implicit Time}
+        Often, only the temporal ordering of events needs to be described, rather than the precise timing of each event. In this case, special connectives
+        (i.e. logic operations) can be used to relate variables at different execution stages. Linear Temporal Logic (LTL) is designed for expressing
+        temporal order of events and variables values while leaving time implicit.
+
+        The temporal connectives of LTL include:
+        \begin{itemize}
+          \item \textbf{Henceforth ($\Box f$)}: Asserts $f$ is true in current and all future states.
+          \item \textbf{Eventually ($\Diamond f$)}: Asserts $f$ is true in current or some future state.
+          \item \textbf{Next ($\Circle f$)}: Asserts $f$ is true in next future state.
+          \item \textbf{Until ($f U g$)}: Asserts $g$ is eventually true, and $f$ is true until $g$ is true.
+          \item \textbf{Unless ($f W g$)}: Asserts $f$ is true until $g$ is true, but with no guarantee that $g$ will become true (often used to describe environmental
+            properties out of system control instead of system properties).
+        \end{itemize}
 
 \end{document}
