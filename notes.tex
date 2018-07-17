@@ -1087,4 +1087,132 @@
             properties out of system control instead of system properties).
         \end{itemize}
 
+  \newpage
+
+  \section{Estimations}
+
+    \subsection{Terminology}
+      \begin{itemize}
+        \item \textbf{Estimate:} A predication of some aspect of a project, such as its length or cost
+        \item \textbf{Target:} Some desirable business objective
+        \item \textbf{Commitment:} A promise to deliver
+      \end{itemize}
+
+    \subsection{Purpose}
+      Estimating the cost and effort of projects has many purposes, including:
+      \begin{itemize}
+        \item Assessing economic feasibility
+        \item Understanding resource needs
+        \item Providing a basis for agreeing to a job and making realistic commitments
+      \end{itemize}
+
+    \subsection{Inaccurate Estimates}
+      A business environment where ``pricing to win'' is awarded means that competitors are inclined to show unrealistically optimistic estimates to clients
+      to win contracts.
+
+      Underestimating cost tends to lead to non-linear increases in actual project effort required (i.e. if a cost estimate is 80\% of the actual cost, the
+      final cost will likely be more than just the additional 20\%). This is often a result of bad planning and high-risk practices to try to complete a project
+      quickly or with limited resources.
+
+      Overestimating cost can also lead to slight increases in project cost due to Parkinson's Law, which is an adage that states ``work expands so as to fill
+      the time available for its completion''.
+
+    \subsection{Estimation Error}
+      Common sources of estimation error include:
+      \begin{itemize}
+        \item \textbf{Uncertainty:} In a project's early stages, many requirements details and design decision remain unclear. Uncertainty tends to be decreased
+          rapidly in the early stages (e.g. first 30\%) of a project.
+        \item \textbf{Omitted Activities:} These omissions can include requirements/functionality, software development activities (e.g. integration, testing),
+          or other not related to software development (e.g. employee vacations, company schedule).
+        \item \textbf{Optimism:} Estimates by developers tend to be overly optimistic by around 20\%-30\%. These estimations are fueled by beliefs that a
+          project can be completed faster than previous ones because its team is more experienced, which in theory should lead to increased productivity,
+          fewer mistakes and a smaller learning curve.
+        \item \textbf{Bias:} Managers can be inclined to align estimates with their desired targets.
+        \item \textbf{Subjectivity:} Ambiguous requirements can lead to multiple interpretations.
+        \item \textbf{Project Size:} Software projects tend to have diseconomies of scale; larger projects require more communication and coordination,
+          so adding additional resources follows the law of diminishing returns.
+        \item \textbf{Software Type:} Requirements elicitation and the development process is done differently for different types of projects
+          (e.g. business applications, embedded applications, etc.).
+        \item \textbf{Personnel Factors:} Individual productivity can vary hugely. Personnel performance can be difficult to predict, especially with
+          little information on historical performance.
+      \end{itemize}
+
+    \subsection{Estimation Techniques}
+      Forming estimates based on data is typically better than relying on expert judgement. Data that can be useful in forming estimates includes:
+      \begin{itemize}
+        \item \textbf{Project data:} Includes project size (lines of code (LOC) and requirements), resources, and time.
+        \item \textbf{Historical data:} Data on previous projects in the organization.
+        \item \textbf{Industry data:} Data from other organizations that develop similar systems.
+      \end{itemize}
+
+      \subsubsection{Using Analogies}
+        Estimating using analogies involves decomposing a project into smaller elements that are analogous to elements of past projects
+        (e.g. use cases, user interfaces, etc.). The estimates for the effort for completing all elements is based on previous effort
+        for completing analogous elements.
+
+      \subsubsection{Function Point Analysis}
+        Function point analysis involves forming estimates based on a product's requirements. Function point analysis follows three steps:
+        \begin{enumerate}
+          \item Estimating the number of function points from the requirements. The number of function points is gathered from multiplying
+            each input or output (e.g. external IO, interfaces, API, queries) by a complexity multiplier.
+          \item Estimating code size from the number of function points. This is done on a language-by-language basis.
+          \item Estimating resources required from the code size.
+        \end{enumerate}
+
+      \subsubsection{Software Tools}
+        Some software tools can apply computationally intensive estimation methods based on large pools of data that can:
+        \begin{itemize}
+          \item Simulate project outcomes.
+          \item Perform probability analysis on estimates.
+          \item Estimate effort needed for project.
+        \end{itemize}
+
+      \subsubsection{Expert Judgement}
+        Estimates based on expert judgment are typically less reliable than estimates based on data. If collecting expert judgments,
+        the following should be considered:
+        \begin{itemize}
+          \item People actually working on the project put together the most accurate estimates.
+          \item It helps to decompose project estimations into estimations for smaller subtasks.
+          \item It helps to estimate a range of values (best case, most likely case, worst case). The program evaluation and review (PERT)
+            technique estimates the expected value as $\frac{bestCase + 4 \cdot mostLikelyCase + worstCase}{6}$.
+        \end{itemize}
+
+    \subsection{Estimating Effort}
+      Once project size is determined, the effort required can be estimated in various ways. One simple way is to compare to past projects using
+      $effort = pastEffort \cdot \frac{size}{pastSize}$. More complicated (non-linear) formula can be used when larger pools of data are available
+      (e.g. something like $staffMonths = 0.157 \cdot functionPoints^{0.591} \cdot teamSize^{0.81}$).
+
+    \subsection{Estimating Schedule}
+      Scheduling equations can be used to estimate the schedule of projects. For medium-to-large projects in an early phase, the schedule length
+      can be estimated as $C \cdot staffMonths^{\frac{1}{3}}$, where $C$ is a constant between $2$ and $4$.
+
+      When historical data is available, the schedule length can be estimated as $pastSchedule \cdot (\frac{estimatedEffort}{pastEffort})^d$.
+      $d$ various between $\frac{1}{3}$ (for large projects) to $\frac{1}{2}$ (for small projects).
+
+      Note that these techniques assume a project can increase its staffing, which in practice is often not possible.
+
+    \subsection{Best Practices}
+      A few recommended practices when forming estimations are:
+      \begin{itemize}
+        \item Decomposing a task into multiple subtasks; smaller tasks are easier to estimate, and estimation errors can sometimes cancel each other out.
+        \item Using multiple estimation techniques and comparing results.
+        \item Defining a clear estimation procedure in advance (e.g techniques to use, where to get data, when to re-estimate).
+      \end{itemize}
+
+    \subsection{Combining Piecewise Estimates}
+      Piecewise estimates can be combined by finding the total of their estimates (e.g. best case, worst case). The variance between
+      the best and worst cases for each piece can be found and summed; a confidence interval can then be constructed based on the total
+      best cases, worst cases and variance.
+
+    \subsection{Project Control}
+      Once project estimates are made, the project can be controlled to meet its target by:
+      \begin{itemize}
+        \item Removing non-critical requirements.
+        \item Redefining requirements.
+        \item Improving or replacing personnel.
+      \end{itemize}
+
+      If an initial target and estimate are close to one another (e.g. within 20\%), then it should be possible to apply the above techniques
+      to meet the target without drastically altering the project.
+
 \end{document}
